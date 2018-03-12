@@ -1021,7 +1021,7 @@ a.label:hover, a.label:focus {
 	color: #fff;
 }
 
-.sidebar ul.nav .active a, .sidebar ul.nav li.parent a.active, .sidebar ul.nav .active > a:hover, .sidebar ul.nav li.parent a.active:hover, .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus {
+.sidebar ul.nav .active a, .sidebar ul.nav .active, .sidebar ul.nav li.parent a.active, .sidebar ul.nav .active > a:hover, .sidebar ul.nav li.parent a.active:hover, .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus {
 	color: #fff;
 	background-color: $primary-color;
 }
@@ -1334,4 +1334,8 @@ p.back-link {
 	margin-bottom: 20px;
 	font-size: 12px;
 	text-transform: uppercase;
+}
+
+.panel-body .btn{
+	margin-right: 5px;
 }
