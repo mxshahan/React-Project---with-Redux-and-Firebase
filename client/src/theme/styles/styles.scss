@@ -1031,11 +1031,22 @@ a.label:hover, a.label:focus {
 	list-style-type: none;
 }
 
-.sidebar ul.nav li a {
+.sidebar ul.nav li a, .sidebar ul.nav li .logout {
 	height: 50px;
 	font-size: 15px;
 	line-height: 2em;
 	color: $dark-gray;
+}
+
+.sidebar ul.nav li .logout{
+	display: block;
+    padding: 10px 15px;
+}
+
+.sidebar ul.nav li .logout:hover{
+	background-color:$primary-color;
+	cursor: pointer;
+	color: $lighter-gray
 }
 
 .sidebar ul.nav ul.children {

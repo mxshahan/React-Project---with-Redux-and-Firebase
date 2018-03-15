@@ -1,6 +1,6 @@
-const firebase = require('firebase');
+import * as firebase from 'firebase';
 
-var config = {
+const config = {
     apiKey: "AIzaSyAejXrkwbrXkDr2AYAE_XYW0vSwPQDQXBw",
     authDomain: "reactapp99.firebaseapp.com",
     databaseURL: "https://reactapp99.firebaseio.com",
@@ -8,10 +8,13 @@ var config = {
     storageBucket: "",
     messagingSenderId: "131442717418"
 };
+
 firebase.initializeApp(config);
 
-const rootRef = firebase.database().ref();
-export const dataRef = rootRef.child('speed');
-export const timeRef = firebase.database.ServerValue.TIMESTAMP;
+const database = firebase.database();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+const facebookAuthProvider = new firebase.auth.FacebookAuthProvider();
+
+export {firebase, googleAuthProvider, facebookAuthProvider, database as default}
 
 

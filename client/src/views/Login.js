@@ -1,41 +1,35 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import LoginForm from '../components/LoginForm';
+import {startLoginWithGoogle} from '../actions/auth';
 
-class Login extends React.Component{
-	
-	onSubmitHandler = (e) => {
-		e.preventDefault();
-	}
+//Load CSS
+import '../theme/styles/css/login.scss';
 
-	render(){
-		return(
-			<div className="row">
-				<div className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
-					<div className="login-panel panel panel-default">
-						<div className="panel-heading">Log in</div>
-						<div className="panel-body">
-							<form role="form" onSubmit={this.onSubmitHandler}>
-								<fieldset>
-									<div className="form-group">
-										<input className="form-control" placeholder="E-mail" name="email" type="email" autoFocus=""/>
-									</div>
-									<div className="form-group">
-										<input className="form-control" placeholder="Password" name="password" type="password" value=""/>
-									</div>
-									<div className="checkbox">
-										<label>
-											<input name="remember" type="checkbox" value="Remember Me"/>Remember Me
-										</label>
-									</div>
-									<input type="submit" className="btn btn-primary" value="Login"/>
-									<Link to="/signup">Create an Account</Link>
-								</fieldset>
-							</form>
-						</div>
+const Login = ({startLoginWithGoogle}) => (
+	<div className="row">
+		<div className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+			<div className="login-panel panel panel-default">
+				<div className="panel-heading">Log in</div>
+				<div className="panel-body">						
+					<div className="social-login form-group">
+						<button onClick={startLoginWithGoogle} className="btn btn-social btn-google"><i className="fa fa-google"> </i> 
+								&nbsp;Sign in with Google
+						</button>
+						{/* <button className="btn btn-social btn-facebook"><i className="fa fa-facebook"> </i> 
+								&nbsp;Sign in with Facebook
+						</button> */}
 					</div>
+					<LoginForm/>
 				</div>
 			</div>
-		)
-	}
-}
-export default Login;
+		</div>
+	</div>
+)
+
+const mapDispatchToProps = (dispatch) => ({
+	startLoginWithGoogle: () => dispatch(startLoginWithGoogle())
+})
+
+export default connect(undefined, mapDispatchToProps)(Login);

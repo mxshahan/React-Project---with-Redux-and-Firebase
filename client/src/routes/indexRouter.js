@@ -9,6 +9,7 @@ const indexRouter = [
   {path: '/dashboard', name: "Dashboard", component: Dashboard},
   {path: '/profile', name: "Profile", component: UserProfile},
   {path: '/create', name: "Create Project", component: CreateProject},
+  {path: '/login', name: "Login", component: Login},
   {name: "404 - Error", component: NotFound}
 ];
 
