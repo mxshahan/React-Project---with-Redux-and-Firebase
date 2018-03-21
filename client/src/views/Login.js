@@ -1,13 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import LoginForm from '../components/LoginForm';
-import {startLoginWithGoogle} from '../actions/auth';
+import LoginForm from '../components/Login/LoginForm';
+import {startLoginWithGoogle, startLoginWithEmailAndPassword} from '../actions/auth';
 
 //Load CSS
 import '../theme/styles/css/login.scss';
 
-const Login = ({startLoginWithGoogle}) => (
+const Login = ({startLoginWithGoogle, startLoginWithEmailAndPassword}) => (
 	<div className="row">
 		<div className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
 			<div className="login-panel panel panel-default">
@@ -21,7 +21,11 @@ const Login = ({startLoginWithGoogle}) => (
 								&nbsp;Sign in with Facebook
 						</button> */}
 					</div>
-					<LoginForm/>
+					<LoginForm
+						submitLogin={(email, pass) => {
+							startLoginWithEmailAndPassword(email, pass);
+						}}
+					/>
 				</div>
 			</div>
 		</div>
@@ -29,7 +33,8 @@ const Login = ({startLoginWithGoogle}) => (
 )
 
 const mapDispatchToProps = (dispatch) => ({
-	startLoginWithGoogle: () => dispatch(startLoginWithGoogle())
+	startLoginWithGoogle: () => dispatch(startLoginWithGoogle()),
+	startLoginWithEmailAndPassword: (email, password) => dispatch(startLoginWithEmailAndPassword(email, password))
 })
 
 export default connect(undefined, mapDispatchToProps)(Login);

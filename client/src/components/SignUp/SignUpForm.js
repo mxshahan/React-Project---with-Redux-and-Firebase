@@ -101,6 +101,13 @@ class SignUpForm extends React.Component{
 		return(
             <form role="form" onSubmit={this.onSubmitSignUp}>
                 <fieldset>
+                    {/* <div className="form-group">
+                        <label>Who are you?</label>
+                        <select className="form-control" required>
+                            <option>Customer</option>
+                            <option>Illustrator</option>
+                        </select>
+                    </div> */}
                     <div className="form-group">
                         <input className="form-control" placeholder="E-mail" name="email" type="email" onBlur={this.emailChangeHandler}/>
                     </div>

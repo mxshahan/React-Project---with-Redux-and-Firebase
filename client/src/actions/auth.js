@@ -24,3 +24,19 @@ export const startLoginWithGoogle = () => {
         });
     }
 }
+
+export const createNewUserWithEmailAndPassword = (email, password) => {
+    return () => {
+        return firebase.auth().createUserWithEmailAndPassword(email, password).catch((e) => {
+            console.log(e.code, e.message);
+        });
+    }
+}
+
+export const startLoginWithEmailAndPassword = (email, password) => {
+    return () => {
+        return firebase.auth().signInWithEmailAndPassword(email, password).catch(e => {
+            console.log('Error Found In Login', e);
+        }) 
+    }
+}

@@ -17,7 +17,8 @@ import UserProfile from '../views/UserProfile';
 import Analytics from '../views/Analytics';
 import NotFound from '../views/NotFound';
 import Login from '../views/Login';
-import CreateProject from '../views/Create';
+import CreateProject from '../views/CreateProject';
+import Projects from '../views/Projects';
 import SignUp from '../views/SignUp';
 
 export const history = createHistory();
@@ -28,6 +29,7 @@ const AppRouter = () => (
       <PrivateRoute path="/" exact={true} component={Dashboard} loc="Dashboard" title="Dashboard"/>
       <PrivateRoute path="/dashboard" component={Dashboard} loc="Dashboard" title="Dashboard"/>
       <PrivateRoute path="/create" component={CreateProject} loc="Create" title="Create Project"/>
+      <PrivateRoute path="/projects" component={Projects} loc="Projects" title="Your Projects"/>
       <PrivateRoute path="/analytics" component={Analytics} loc="Analytics" title="Analytics"/>
       <PrivateRoute path="/profile" component={UserProfile} loc="Profile" title="Your Profile"/>
       <PublicRoute path="/login" component={Login}/>

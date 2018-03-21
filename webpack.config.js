@@ -1,7 +1,7 @@
 const path = require('path');
 
 const src = path.resolve(__dirname, 'client/src');
-const public = path.resolve(__dirname, 'client/public');
+const public = path.resolve(__dirname, 'public');
 
 module.exports = {
   entry: src + '/app.js',

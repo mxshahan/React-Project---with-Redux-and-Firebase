@@ -6,13 +6,16 @@ const UserProfile = ({userdata}) => (
   <div>
     <div className="panel panel-default">
       <div className="panel-heading">
-        Hi, {userdata.displayName}
+        Hi, {userdata.displayName || 'Annonymous'}
       </div>
       <div className="panel-body row">
-        <div className="col-md-3">
-          <img src={userdata.photoURL}  className="img-circle img-thumbnail" width="100%"/>
+        <div className="col-md-2 bg-info">
+        {userdata.photoURL ? <img className="img-circle img-thumbnail" src={userdata.photoURL} alt=""/> : 
+        <img className="img-circle img-thumbnail" src="http://www.georeferencer.com/static/img/person.png" alt=""/>}
         </div>
-        <div className="col-md-9">
+        <div className="col-md-10">
+          {userdata.displayName ?<h3>{userdata.displayName}</h3> : 
+          <h3> <strong>Annonymous</strong></h3>}
           <p className=""><b>Email: </b>{userdata.email}</p>
         </div>
       </div>
